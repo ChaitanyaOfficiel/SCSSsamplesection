@@ -1,0 +1,37 @@
+$light-color : #f4f4f4;
+$font-family: Arial;
+$regular: 300;
+$bold:600;
+$primary-color:#6160b4;
+$secondary-color:#5ea107;
+
+//set text color based on bg 
+@function set-text-color($color){
+    @if(lightness($color) > 70){
+        @return #333;
+    }@else{
+        @return #fff;
+    }
+}
+//  set background & text color
+@mixin set-background($color) {
+    background-color: $color;
+    color: set-text-color($color);
+} 
+
+//margin & padding 
+$spaceamounts : (1,2,3);
+@each $space in $spaceamounts{
+    .m-#{$space}{
+        margin: #{$space}rem;
+    }
+    .my-#{$space}{
+        margin: #{$space}rem 0;
+    }
+    .p-#{$space}{
+        margin: #{$space}rem;
+    }
+    .py-#{$space}{
+        margin: #{$space}rem 0;
+    }
+}
